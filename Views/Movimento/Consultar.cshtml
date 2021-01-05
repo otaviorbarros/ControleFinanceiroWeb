@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm("Filtrar", "Movimento", FormMethod.Post))
+{
+    <div class="panel panel-default">
+
+        <div class="form-group">
+            <label>Tipo</label>
+            <select class="form-control" name="tipo">
+                <option value="0">Entrada</option>
+                <option value="1">Saída</option>
+                <option value="2" selected>Todos</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label>Data inicial</label>
+            <input class="form-control" type="date" placeholder="Digite aqui" name="dataIni" value="@ViewBag.dtIni" />
+        </div>
+        <div class="form-group">
+            <label>Data final</label>
+            <input class="form-control" type="date" placeholder="Digite aqui" name="dataFim" value="@ViewBag.dtFim" />
+        </div>
+        <button class="btn btn-warning">Pesquisar</button>
+    </div>
+}
+@if (ViewBag.Mov != null)
+{
+
+
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Empresa</th>
+                        <th>Categoria</th>
+                        <th>Conta</th>
+                        <th>Obs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Mov)
+                    {
+
+                        <tr class="odd gradeX">
+                            <td>@item.Data</td>
+                            <td>@item.Tipo</td>
+                            <td>@item.Valor</td>
+                            <td>@item.Empresa</td>
+                            <td>@item.Categoria</td>
+                            <td>@item.Conta</td>
+                            <td>@item.Obs</td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+
+

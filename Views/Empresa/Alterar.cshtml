@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Empresa", FormMethod.Post))
+{
+  
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="form-group">
+        <label>Nome da Empresa</label>
+        <input class="form-control" placeholder="Digite o nome da empresa" name="nome" value="@ViewBag.nome" />
+    </div>
+    <div class="form-group">
+        <label>Endereço da Empresa</label>
+        <input class="form-control" placeholder="Digite o endereço da empresa" name="end" value="@ViewBag.end" />
+    </div>
+    <div class="form-group">
+        <label>Telefone da Empresa</label>
+        <input class="form-control" placeholder="Digite o nome da empresa" name="telefone" value="@ViewBag.telefone" />
+    </div>
+    <div class="form-group">
+        <label>Site da Empresa</label>
+        <input class="form-control" placeholder="Digite o site da empresa" name="site" value="@ViewBag.site" />
+    </div>
+
+    <button type="submit" name="btn" value="salvar" class="btn btn-success">Salvar Alteração</button>
+    <button type="submit" name="btn" value="excluir" class="btn btn-danger">Excluir</button>
+}
+

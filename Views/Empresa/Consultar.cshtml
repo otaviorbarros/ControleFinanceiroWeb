@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Empresa", FormMethod.Post))
+{
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Empresas Cadastradas
+        </div>
+
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Site</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.LstEmpresa)
+                        {
+
+                        <tr class="odd gradeX">
+                            <td>@item.nome_empresa</td>
+                            <td>@item.telefone_empresa</td>
+                            <td>@item.end_empresa</td>
+                            <td>@item.site_empresa</td>
+                            <td><a href="/Empresa/Alterar?cod=@item.id_empresa&nome=@item.nome_empresa&tel=@item.telefone_empresa&end=@item.end_empresa&site=@item.site_empresa" class="btn btn-warning">Alterar</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+}

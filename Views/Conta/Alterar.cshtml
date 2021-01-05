@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Conta", FormMethod.Post))
+{
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="form-group">
+        <label>Nome do Banco</label>
+        <input class="form-control" placeholder="Digite aqui..." name="nome" value="@ViewBag.banco" />
+    </div>
+    <div class="form-group">
+        <label>Número da Agência</label>
+        <input class="form-control" placeholder="Digite aqui..." name="ag" value="@ViewBag.ag" />
+    </div>
+    <div class="form-group">
+        <label>Número da Conta</label>
+        <input class="form-control" placeholder="Digite aqui..." name="numero" value="@ViewBag.numero" />
+    </div>
+    <div class="form-group">
+        <label>Saldo da Conta</label>
+        <input class="form-control" placeholder="Digite aqui..." name="saldo" value="@ViewBag.saldo" />
+    </div>
+    <label for="TipoConta">Tipo da Conta</label>
+    <select id="TipoConta" class="form-control" name="tpconta">
+        <option>-Selecione o tipo da conta</option>
+        <option value="0" @{ string sel = ""; if (ViewBag.tpconta == "0") { sel = "selected"; } else { sel = ""; } } @sel> Poupança</option>
+        <option value="1" @{ if (ViewBag.tpconta == "1") { sel = "selected"; } else { sel = ""; } } @sel> Conta Corrente</option>
+    </select>
+    <button type="submit" name="btn" value="salvar" class="btn btn-success">Salvar Alteração</button>
+    <button type="submit" name="btn" value="excluir" class="btn btn-danger">Excluir</button>
+}

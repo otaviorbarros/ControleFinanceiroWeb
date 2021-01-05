@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Conta", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Nome do Banco</label>
+        <input class="form-control" placeholder="Digite aqui..." name="nome" />
+    </div>
+    <div class="form-group">
+        <label>Número da agência</label>
+        <input class="form-control" placeholder="Digite aqui..." name="ag" />
+    </div>
+    <div class="form-group">
+        <label>Número da Conta</label>
+        <input class="form-control" placeholder="Digite aqui..." name="num_conta" />
+    </div>
+
+    <div class="form-group">
+        <label>Saldo da conta</label>
+        <input class="form-control" style="width:500px;" placeholder="Digite aqui..." name="saldo" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Tipo</label>
+        <select class="form-control" name="tipo">
+            <option value="">Selecionte</option>
+            <option value="0">Corrente</option>
+            <option value="1">Poupança</option>
+        </select>
+
+    </div>
+
+    <button type="submit" name="btn" class="btn btn-success">Cadastrar</button>
+
+}

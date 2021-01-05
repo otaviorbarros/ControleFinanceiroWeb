@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm("Gravar", "Movimento", FormMethod.Post))
+{
+
+    <div class="form-group">
+        <label>Data</label>
+        <input class="form-control" type="date" name="data" />
+    </div>
+    <div class="form-group">
+        <label>Tipo</label>
+        <select class="form-control" name="tipo">
+            <option value="">Selecionte</option>
+            <option value="0">Entrada</option>
+            <option value="1">Saída</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label>Valor</label>
+        <input class="form-control" placeholder="Digite o valor" name="valor" />
+    </div>
+    <div class="form-group">
+        <label>Categoria</label>
+        <select class="form-control" name="categoria">
+            <option value="">Selecionte</option>
+            @foreach (var item in ViewBag.lstCategoria)
+            {
+                <option value="@item.id_categoria">@item.nome_categoria</option>
+            }
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label>Empresa</label>
+        <select class="form-control" name="empresa">
+            <option value="">Selecionte</option>
+            @foreach (var item in ViewBag.lstEmpresa)
+            {
+                <option value="@item.id_empresa">@item.nome_empresa</option>
+            }
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label>Conta</label>
+        <select class="form-control" name="conta">
+            <option value="">Selecionte</option>
+            @foreach (var item in ViewBag.lstConta)
+            {
+                <option value="@item.id_conta">@item.banco_conta / @item.num_conta / @item.saldo_conta</option>
+            }
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label>Observação</label>
+        <input class="form-control" placeholder="Digite o nome do site" name="obs" />
+    </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+
+}
+

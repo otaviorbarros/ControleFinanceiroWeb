@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm("Gravar", "Categoria", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Nome da Categoria</label>
+        <input class="form-control" placeholder="Digite o nome da categoria..." name="nome" />
+    </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+
+
+}
